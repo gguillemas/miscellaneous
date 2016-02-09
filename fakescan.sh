@@ -6,5 +6,6 @@ if [ $# -eq 0 ]; then
 fi
 echo "Scanning..."
 exiftool -all:all $1
-convert -compress lzw  -rotate 0.5  -density 300x300 -colorspace gray -compose Divide_Src -composite -normalize -threshold 80% $1 scanned.pdf
+convert -compress lzw  -rotate 0.5  -density 300x300 $1 -colorspace gray -threshold 90% scanned.pdf
+echo "Removing metadata..."
 exiftool -all:all= scanned.pdf
