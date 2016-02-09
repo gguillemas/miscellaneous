@@ -5,7 +5,7 @@ if [ $# -eq 0 ]; then
         exit
 fi
 echo "Scanning..."
-exiftool -all:all $1
-convert -compress lzw  -rotate 0.5  -density 300x300 $1 -colorspace gray -threshold 90% scanned.pdf
+exiftool -all:all "$1"
+convert -compress lzw  -rotate 0.5  -density 300x300 "$1" -colorspace gray -threshold 90% scanned.pdf
 echo "Removing metadata..."
 exiftool -all:all= scanned.pdf
